@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <link rel="stylesheet" href="./assets/style.css">
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="desktop-nav">
+      <img src="/images/logo.svg" alt="Snap Logo">
+      <div class="links">
+        <ul>
+          <li>
+            <span id="parent-desktopnav-features" onclick="toggleFeaturesDropdown();">Features<img class="dropdownIcon"
+                id="desktopnav-features-icon" src="/images/icon-arrow-down.svg" alt="icon arrow down"></span>
+            <div id="desktopnav-features" class="dropdown">
+              <ul>
+                <li><img src="/images/icon-todo.svg" alt="todo"><span>Todo List</span></li>
+                <li><img src="/images/icon-calendar.svg" alt="calendar"><span>Calendar</span></li>
+                <li><img src="/images/icon-reminders.svg" alt="reminders"><span>Reminders</span></li>
+                <li><img src="/images/icon-planning.svg" alt="planning"><span>Planning</span></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span id="parent-desktopnav-company" onclick="toggleCompanyDropdown();">Company <img class="dropdownIcon"
+                id="desktopnav-company-icon" src="/images/icon-arrow-down.svg" alt="icon arrow down"></span>
+            <div id="desktopnav-company" class="dropdown">
+              <ul>
+                <li>History</li>
+                <li>Our Team</li>
+                <li>Blog</li>
+              </ul>
+            </div>
+          </li>
+          <li>Careers</li>
+          <li>About</li>
+        </ul>
+      </div>
+      <div class="btnContainer">
+        <button class="loginBtn">Login</button>
+        <button class="registerBtn">Register</button>
+      </div>
+    </nav>
+    <nav class="mobile-nav">
+      <img src="/images/logo.svg" alt="Snap Logo">
+      <img src="/images/icon-menu.svg" onclick="openMenu()" alt="menu icon">
+      <div id="mobile-menu" class="mobile-menu">
+        <div id="mobile-links" class="mobile-links">
+          <div class="closeIcon">
+            <img id="closeMenu" onclick="closeMenu();" src="/images/icon-close-menu.svg" alt="close menu">
+          </div>
+          <div class="linksContainer">
+            <ul>
+              <li>
+                <span id="parent-mobilenav-features" onclick="toggleMobileFeaturesDropdown();">Features<img
+                    class="mobile-dropdownIcon" id="mobilenav-features-icon" src="/images/icon-arrow-down.svg"
+                    alt="icon arrow down"></span>
+                <div id="mobilenav-features" class="mobile-dropdown">
+                  <ul>
+                    <li><img src="/images/icon-todo.svg" alt="todo"><span>Todo List</span></li>
+                    <li><img src="/images/icon-calendar.svg" alt="calendar"><span>Calendar</span></li>
+                    <li><img src="/images/icon-reminders.svg" alt="reminders"><span>Reminders</span></li>
+                    <li><img src="/images/icon-planning.svg" alt="planning"><span>Planning</span></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <span id="parent-mobilenav-company" onclick="toggleMobileCompanyDropdown();">Company <img
+                    class="mobile-dropdownIcon" id="mobilenav-company-icon" src="/images/icon-arrow-down.svg"
+                    alt="icon arrow down"></span>
+                <div id="mobilenav-company" class="mobile-dropdown">
+                  <ul>
+                    <li>History</li>
+                    <li>Our Team</li>
+                    <li>Blog</li>
+                  </ul>
+                </div>
+              </li>
+              <li>Careers</li>
+              <li>About</li>
+            </ul>
+            <div class="mobileBtnContainer">
+              <button class="mobileLoginBtn">Login</button>
+              <button class="mobileRegisterBtn">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="detailsContainer">
+      <h1>Make<br>remote work</h1>
+      <h1>Make remote work</h1>
+      <p>
+        Get your team in sync, no matter your location. Streamline processes,
+        create team rituals, and watch productivity soar.
+      </p>
+      <button>Learn more</button>
+      <div class="iconContainer">
+        <img src="/images/client-databiz.svg" alt="databiz">
+        <img src="/images/client-audiophile.svg" alt="audiophile">
+        <img src="/images/client-meet.svg" alt="meet">
+        <img src="/images/client-maker.svg" alt="maker">
+      </div>
+    </div>
+    <div class="hero">
+      <div class="desktop-hero">
+        <img src="/images/image-hero-desktop.png" alt="image-hero-desktop">
+      </div>
+      <div class="mobile-hero">
+        <img src="/images/image-hero-mobile.png" alt="image-hero-mobile">
+      </div>
+    </div>
+  </main>
+
+  <div role="doc-credits" class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+    Coded by <a href="https://portfolio-nawfalrazouk7.vercel.app/" target="_blank" rel="noopener">Nawfal RAZOUK</a>.
+  </div>
+
+  <script type="text/javascript" language="Javascript">
+    function toggleFeaturesDropdown() {
+      var dropdown = document.getElementById('desktopnav-features')
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show')
+        document.getElementById('desktopnav-features-icon').style.transform = "rotate(0deg)"
+      } else {
+        dropdown.classList.add('show')
+        document.getElementById('desktopnav-features-icon').style.transform = "rotate(-180deg)"
+        document.getElementById('desktopnav-company').classList.remove('show')
+        document.getElementById('desktopnav-company-icon').style.transform = "rotate(0deg)"
+      }
+    }
+
+    function toggleCompanyDropdown() {
+      var dropdown = document.getElementById('desktopnav-company');
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show')
+        document.getElementById('desktopnav-company-icon').style.transform = "rotate(0deg)"
+      } else {
+        dropdown.classList.add('show')
+        document.getElementById('desktopnav-company-icon').style.transform = "rotate(-180deg)"
+        document.getElementById('desktopnav-features').classList.remove('show')
+        document.getElementById('desktopnav-features-icon').style.transform = "rotate(0deg)"
+      }
+    }
+
+    function closeMenu() {
+      document.getElementById('mobile-links').style.transform = "scaleX(0)"
+      document.getElementById('mobile-menu').style.backgroundColor = "transparent"
+      setTimeout(() => {
+        document.getElementById('mobile-menu').style.display = "none"
+        document.getElementById('mobile-menu').style.backgroundColor = "rgba(0, 0, 0, 0.7)"
+      }, 250);
+    }
+
+    function openMenu() {
+      document.getElementById('mobile-menu').style.display = "block"
+      document.getElementById('mobile-links').style.transform = "scaleX(1)"
+    }
+
+    function toggleMobileFeaturesDropdown() {
+      var dropdown = document.getElementById('mobilenav-features');
+      if (dropdown.classList.contains('mobile-dropdown-show')) {
+        dropdown.classList.remove('mobile-dropdown-show')
+        document.getElementById('mobilenav-features-icon').style.transform = "rotate(0deg)"
+      } else {
+        dropdown.classList.add('mobile-dropdown-show')
+        document.getElementById('mobilenav-features-icon').style.transform = "rotate(-180deg)"
+      }
+    }
+
+    function toggleMobileCompanyDropdown() {
+      var dropdown = document.getElementById('mobilenav-company');
+      if (dropdown.classList.contains('mobile-dropdown-show')) {
+        dropdown.classList.remove('mobile-dropdown-show')
+
+      } else {
+        dropdown.classList.add('mobile-dropdown-show')
+      }
+    }
+  </script>
+</body>
+
+</html>
